@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.io.*;
 
@@ -66,6 +67,7 @@ public class Test{
 				int n = 0 ;
 				System.out.print("\nNo. of rectangles to create : \t");
 				n = sc.nextInt();
+				sc.nextLine();
 
 				Rectangle ob[] = new Rectangle[n];
 				for (int i = 0; i<n ; i++ ) {
@@ -77,24 +79,20 @@ public class Test{
 						
 						try{
 							System.out.print("\n\nEnter length of "+(i+1)+" Rectangle :\t");
-							l = sc.nextDouble();
+							l = Double.parseDouble(sc.nextLine());
 							System.out.print("\nEnter width of "+(i+1)+" Rectangle :\t");
-							w = sc.nextDouble();
+							w = Double.parseDouble(sc.nextLine());
 							System.out.print("\nEnter color of "+(i+1)+" Rectangle :\t");
-							c = sc.next();
+							c = sc.nextLine();
+							ob[i].setLength(l);
+						    ob[i].setWidth(w);
+						    ob[i].setColor(c);
 						}
-						catch(InputMismatchException e){
+						catch(NumberFormatException e){
 							System.out.print("\nEnter correct input type \n");
-							System.out.print("\nEnter length of "+(i+1)+" Rectangle :\t");
-							l = sc.nextDouble();
-							System.out.print("\nEnter width of "+(i+1)+" Rectangle :\t");
-							w = sc.nextDouble();
-							System.out.print("\nEnter color of "+(i+1)+" Rectangle :\t");
-							c = sc.next();
+							i=i-1;
 						}
-						ob[i].setLength(l);
-						ob[i].setWidth(w);
-						ob[i].setColor(c);
+						
 						
 				}
 				try{
@@ -181,3 +179,12 @@ public class Test{
 
 		}
 }
+
+
+
+
+
+
+
+
+
